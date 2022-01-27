@@ -54,21 +54,20 @@ function playRound(playerSelection, computerSelection){
 function game(){
     let humanCount = 0 
     let computerCount = 0
-    for (let i = 0; humanCount<5 || computerCount<5; i++){
+    for (let i = 0; humanCount<=5 || computerCount<=5; i++){
         let play = (playRound())
         if (play === 'Won'){
             humanCount = humanCount + 1 
-            console.log('Won')
+            console.log('Human Score' + humanCount)
         } else if (play === 'Lost'){
             computerCount = computerCount + 1 
-            console.log('Lost')
+            console.log('Computer Score' + computerCount)
         } else {
             console.log('tie')
-        }
-    }
-    if (humanCount === 5){
-        return ('You Won')
-    } else if (computerCount === 5){
-        return ('Computer Wins')
+        } if (humanCount === 5){
+            return('Human Wins')
+        } else if (computerCount === 5){
+            return ('Computer Wins')
+        }   
     }
 }
