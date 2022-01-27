@@ -49,24 +49,26 @@ function playRound(playerSelection, computerSelection){
         return(computerWin)
     } 
 }
- 
-function checkWinner(){
-    let initiateGame = playRound()
-  if (initiateGame === 'Won'){
-      return initiateGame;
-  } else if (initiateGame === 'Lost'){
-    return initiateGame
-  } else if (initiateGame === 'tie'){
-      return initiateGame
-  }
-}
+
 
 function game(){
-    let checksWin = checkWinner()
-    return checksWin
-    
+    let humanCount = 0 
+    let computerCount = 0
+    for (let i = 0; humanCount<5 || computerCount<5; i++){
+        let play = (playRound())
+        if (play === 'Won'){
+            humanCount = humanCount + 1 
+            console.log('Won')
+        } else if (play === 'Lost'){
+            computerCount = computerCount + 1 
+            console.log('Lost')
+        } else {
+            console.log('tie')
+        }
+    }
+    if (humanCount === 5){
+        return ('You Won')
+    } else if (computerCount === 5){
+        return ('Computer Wins')
+    }
 }
-
-
-for (let i = 0;; i++)
-
