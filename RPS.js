@@ -58,10 +58,10 @@ function game(){
         let play = (playRound())
         if (play === 'Won'){
             humanCount = humanCount + 1 
-            console.log('Human Score' + humanCount)
+            console.log('Human Score'+ ' ' + humanCount)
         } else if (play === 'Lost'){
             computerCount = computerCount + 1 
-            console.log('Computer Score' + computerCount)
+            console.log('Computer Score' + ' ' + computerCount)
         } else {
             console.log('tie')
         } if (humanCount === 5){
