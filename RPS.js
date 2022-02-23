@@ -1,3 +1,16 @@
+function playerSelection(chosen){
+    var value = chosen
+    var randomForComp = randomInt()
+    var computerSelector = computerPlay(randomForComp)
+    var roundOfMatch = playRound(value,computerSelector) 
+    var setPlayerSelection = playerChosed(value)
+    var setComputerSelection = computerChosed(computerSelector)
+    let compCount = scoreKeep(roundOfMatch)
+    console.log(compCount)
+
+
+}
+
 randomInt = (num=3) => { /*creates a random function that sets the default arg to 3*/ 
     let randomNumber = (Math.floor(Math.random()*num)+1); 
     return(randomNumber);
@@ -6,42 +19,28 @@ randomInt = (num=3) => { /*creates a random function that sets the default arg t
 function computerPlay(num){/*creates a function that takes a number*/
     switch(num){
         case 1:
-            return 'Rock';
+            return 'rock';
         break;
         case 2:                             /*runs its through a series of cases that will return a value to the function*/
-            return 'Paper';                     
+            return 'paper';                     
         break;
         case 3: 
-            return 'Scissor';
+            return 'scissor';
         break;
 
     }
 }
 
-function playerChoice(){                                        /* creates a function with no need for parameter*/ 
-    let choice = prompt('Choose Rock, Paper, Or Scissor');  /*Initiates a prompt*/
-    let cleanChoice = choice.trim(); /*removes white space in the prompt to reduce errors*/
-    if (cleanChoice === 'Rock' || cleanChoice === 'Paper' || cleanChoice === 'Scissor' ){ /*if one of these choices is true assign the value to  function */                                                                
-        return cleanChoice
-    } else {
-        alert('unacceptable input');
-  }
-}
-
 
 function playRound(playerSelection, computerSelection){
-    playerSelection = playerChoice();
-    computerSelection = computerPlay(randomInt());
-    console.log(playerSelection);
-    console.log(computerSelection);
     let humanWin = 'Won'
     let computerWin = 'Lost'
     let tie = 'tie'
-    if (playerSelection === 'Rock' && computerSelection === 'Scissor'){
+    if (playerSelection === 'rock' && computerSelection === 'scissor'){
         return(humanWin)
-    } else if(playerSelection === 'Scissor' && computerSelection ==='Paper'){
+    } else if(playerSelection === 'scissor' && computerSelection ==='paper'){
         return(humanWin)
-    } else if (playerSelection === 'Paper' && computerSelection ==='Rock'){
+    } else if (playerSelection === 'paper' && computerSelection ==='rock'){
         return(humanWin)
     } else if (playerSelection === computerSelection){
         return(tie)
@@ -50,24 +49,51 @@ function playRound(playerSelection, computerSelection){
     } 
 }
 
-
-function game(){
-    let humanCount = 0 
-    let computerCount = 0
-    for (let i = 0; humanCount<=5 || computerCount<=5; i++){
-        let play = (playRound())
-        if (play === 'Won'){
-            humanCount = humanCount + 1 
-            console.log('Human Score'+ ' ' + humanCount)
-        } else if (play === 'Lost'){
-            computerCount = computerCount + 1 
-            console.log('Computer Score' + ' ' + computerCount)
-        } else {
-            console.log('tie')
-        } if (humanCount === 5){
-            return('Human Wins')
-        } else if (computerCount === 5){
-            return ('Computer Wins')
-        }   
-    }
+function playerChosed(selection){
+    var chosenValue = selection 
+    const humanScore = document.querySelector(".humanSelected")
+    humanScore.textContent = (chosenValue)
 }
+function computerChosed(selection){
+    var chosenValue = selection 
+    const computerScore = document.querySelector(".computerSelected")
+    computerScore.textContent = (chosenValue)
+}
+
+let compCount = 0 
+let humanCount = 0 
+
+function scoreKeep(selection){
+    let value = selection
+    const compScore = document.querySelector('.ComputerScore')
+    const humanScore = document.querySelector('.HumanScore')
+    const result = document.querySelector('.result')
+    if (value === 'Lost'){
+    compCount = compCount + 1
+    compScore.textContent = ('Computer Won' +' '+ compCount)
+    } else if (value==='Won'){
+        humanCount = humanCount + 1 
+        humanScore.textContent = ('You Won' +' '+ humanCount)
+    } 
+    if (humanCount >= 5){
+        humanCount = 0 
+        compCount = 0 
+        humanScore.textContent = ('You Won' +' '+ humanCount)
+        compScore.textContent = ('Computer Won' +' '+ compCount)
+        result.textContent = ('Human Wins')
+        return('human won')
+    } else if (compCount >= 5){
+        humanCount = 0 
+        compCount = 0 
+        humanScore.textContent = ('You Won' +' '+ humanCount)
+        compScore.textContent = ('Computer Won' +' '+ compCount)
+        result.textContent = ('Computer Wins')
+    }
+
+}
+
+
+
+        
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="RPS.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="buttonsContainer">
+        <button id="rock" onclick="playerSelection('rock')">Rock</button>
+        <button id="paper" onclick="playerSelection('paper')">Paper</button>
+        <button id="scissor" onclick="playerSelection('scissor')">Scissor</button>
+    </div>
+    <div class="overallContainer">
+    <div class="selections"> 
+        <div class="PlayerChoosed">
+            Player Selection
+            <div class="humanSelected"></div>
+        </div>
+        <div class="ComputerChoosed">
+            Computer Selection
+            <div class="computerSelected"></div>
+        </div>
+    </div>
+    <div class="Scores">
+        <div class="HumanScore">You Won 0</div>
+        <div class="ComputerScore">Computer Won 0</div>
+    </div>
+    <div class="result"></div>
+    </div>
+</html>
